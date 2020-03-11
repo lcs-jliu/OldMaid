@@ -45,12 +45,12 @@ class OldMaid {
         //Player has 26
         if let newCards = self.deck.randomlyDealOut(thisManyCards: 26){
             self.playerHand.cards = newCards
-            print("Player have \(newCards) cards")
+            print("Player have \(newCards.count) cards")
         }
         //Computer has 25
         if let newCards = self.deck.randomlyDealOut(thisManyCards: 25){
             self.computerHand.cards = newCards
-            print("Computer hanve \(newCards) cards")
+            print("Computer hanve \(newCards.count) cards")
         }
     }
 
