@@ -43,6 +43,8 @@ struct Deck {
 
     }
     
+
+    
     // Prints status of the deck
     func status() {
         
@@ -77,6 +79,7 @@ struct Deck {
             
             // We've dealt a card
             cardsLeftToDeal -= 1
+            
             
         }
         

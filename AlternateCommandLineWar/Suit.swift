@@ -21,8 +21,10 @@ enum Suit : Int {
         switch self {
             default:
                 return self.rawValue
+
         }
     }
+    
     
     // Computed property to return lowest rank
     static var lowestRank: Int {

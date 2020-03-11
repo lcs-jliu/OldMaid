@@ -15,6 +15,7 @@ struct Card {
     var suit: Suit
     var rank: Rank
     
+
     // Does the value for this card beat another card?
     //
     func beats(_ otherCard: Card) -> Bool {
