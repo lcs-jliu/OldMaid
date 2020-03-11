@@ -30,26 +30,27 @@ class OldMaid {
         
        //Remove a queen
         let itemToRemove = 12
+        var checkingCard = 0
         while deck.cards.count != 51 {
-            var checkingCard = 0
             if deck.cards[checkingCard].rank.rawValue == itemToRemove {
                 deck.cards.remove(at: itemToRemove)
                 print("The deck has \(deck.cards.count) cards")
             }
             checkingCard += 1
+            print(checkingCard)
         }
         
         
         //Deal out the card
         //Player has 26
-        if let newCards1 = self.deck.randomlyDealOut(thisManyCards: 26){
-            self.playerHand.cards = newCards1
-            print("Player have \(newCards1) cards")
+        if let newCards = self.deck.randomlyDealOut(thisManyCards: 26){
+            self.playerHand.cards = newCards
+            print("Player have \(newCards) cards")
         }
         //Computer has 25
-        if let newCards2 = self.deck.randomlyDealOut(thisManyCards: 25){
-            self.computerHand.cards = newCards2
-            print("Computer hanve \(newCards2) cards")
+        if let newCards = self.deck.randomlyDealOut(thisManyCards: 25){
+            self.computerHand.cards = newCards
+            print("Computer hanve \(newCards) cards")
         }
     }
 
