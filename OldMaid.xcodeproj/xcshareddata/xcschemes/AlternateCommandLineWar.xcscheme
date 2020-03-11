@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "0E11972C23F44076003B34AE"
-               BuildableName = "AlternateCommandLineWar"
-               BlueprintName = "AlternateCommandLineWar"
-               ReferencedContainer = "container:AlternateCommandLineWar.xcodeproj">
+               BuildableName = "OldMaid"
+               BlueprintName = "OldMaid"
+               ReferencedContainer = "container:OldMaid.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,9 +45,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0E11972C23F44076003B34AE"
-            BuildableName = "AlternateCommandLineWar"
-            BlueprintName = "AlternateCommandLineWar"
-            ReferencedContainer = "container:AlternateCommandLineWar.xcodeproj">
+            BuildableName = "OldMaid"
+            BlueprintName = "OldMaid"
+            ReferencedContainer = "container:OldMaid.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0E11972C23F44076003B34AE"
-            BuildableName = "AlternateCommandLineWar"
-            BlueprintName = "AlternateCommandLineWar"
-            ReferencedContainer = "container:AlternateCommandLineWar.xcodeproj">
+            BuildableName = "OldMaid"
+            BlueprintName = "OldMaid"
+            ReferencedContainer = "container:OldMaid.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

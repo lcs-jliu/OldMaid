@@ -28,7 +28,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0E11972D23F44076003B34AE /* AlternateCommandLineWar */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = AlternateCommandLineWar; sourceTree = BUILT_PRODUCTS_DIR; };
+		0E11972D23F44076003B34AE /* OldMaid */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = OldMaid; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E11973023F44076003B34AE /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		0E11973823F4B94D003B34AE /* Suit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Suit.swift; sourceTree = "<group>"; };
 		0E11973A23F4B979003B34AE /* Rank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rank.swift; sourceTree = "<group>"; };
@@ -51,7 +51,7 @@
 		0E11972423F44076003B34AE = {
 			isa = PBXGroup;
 			children = (
-				0E11972F23F44076003B34AE /* AlternateCommandLineWar */,
+				0E11972F23F44076003B34AE /* OldMaid */,
 				0E11972E23F44076003B34AE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -59,12 +59,12 @@
 		0E11972E23F44076003B34AE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0E11972D23F44076003B34AE /* AlternateCommandLineWar */,
+				0E11972D23F44076003B34AE /* OldMaid */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		0E11972F23F44076003B34AE /* AlternateCommandLineWar */ = {
+		0E11972F23F44076003B34AE /* OldMaid */ = {
 			isa = PBXGroup;
 			children = (
 				0E11973023F44076003B34AE /* main.swift */,
@@ -74,15 +74,15 @@
 				0E11973E23F4BA4A003B34AE /* Deck.swift */,
 				0E11974023F4BAAC003B34AE /* Hand.swift */,
 			);
-			path = AlternateCommandLineWar;
+			path = OldMaid;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0E11972C23F44076003B34AE /* AlternateCommandLineWar */ = {
+		0E11972C23F44076003B34AE /* OldMaid */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0E11973423F44076003B34AE /* Build configuration list for PBXNativeTarget "AlternateCommandLineWar" */;
+			buildConfigurationList = 0E11973423F44076003B34AE /* Build configuration list for PBXNativeTarget "OldMaid" */;
 			buildPhases = (
 				0E11972923F44076003B34AE /* Sources */,
 				0E11972A23F44076003B34AE /* Frameworks */,
@@ -92,9 +92,9 @@
 			);
 			dependencies = (
 			);
-			name = AlternateCommandLineWar;
+			name = OldMaid;
 			productName = CommandLineWar;
-			productReference = 0E11972D23F44076003B34AE /* AlternateCommandLineWar */;
+			productReference = 0E11972D23F44076003B34AE /* OldMaid */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -112,7 +112,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 0E11972823F44076003B34AE /* Build configuration list for PBXProject "AlternateCommandLineWar" */;
+			buildConfigurationList = 0E11972823F44076003B34AE /* Build configuration list for PBXProject "OldMaid" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -125,7 +125,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0E11972C23F44076003B34AE /* AlternateCommandLineWar */,
+				0E11972C23F44076003B34AE /* OldMaid */,
 			);
 		};
 /* End PBXProject section */
@@ -283,7 +283,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0E11972823F44076003B34AE /* Build configuration list for PBXProject "AlternateCommandLineWar" */ = {
+		0E11972823F44076003B34AE /* Build configuration list for PBXProject "OldMaid" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0E11973223F44076003B34AE /* Debug */,
@@ -292,7 +292,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0E11973423F44076003B34AE /* Build configuration list for PBXNativeTarget "AlternateCommandLineWar" */ = {
+		0E11973423F44076003B34AE /* Build configuration list for PBXNativeTarget "OldMaid" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0E11973523F44076003B34AE /* Debug */,
