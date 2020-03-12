@@ -10,27 +10,35 @@ import Foundation
 
 extension Hand {
     // Function to check if pair exist
-    func checkPairs() {
-        var challengingCard = 0
-        let comparedCard = challengingCard + 1
-        var stillChallenging : Bool = true
-        
-        while stillChallenging == true {
-            //If challenging card is greater than compared card, then it moves up
-            if self.cards[challengingCard].rank.rawValue > self.cards[comparedCard].rank.rawValue {
-                self.cards.insert(self.cards[challengingCard], at: comparedCard)
-                challengingCard += 1
+    func removePairs() {
+        var numberOfCardsChecked = 0
+        while numberOfCardsChecked < self.cards.count {
+            var pairingCard = 0
+            var comparedCard = 0
+            var stillPairing : Bool = true
             
-            // If challenging card is less than compared card, then it stays
-            } else if self.cards[challengingCard].rank.rawValue < self.cards[comparedCard].rank.rawValue {
-                stillChallenging = false
-            
-            //  If challenging card and compared card is the same, both get removed
-            } else {
-                self.cards.remove(at: challengingCard)
-                self.cards.remove(at: comparedCard)
-                stillChallenging = false
+            while stillPairing == true && comparedCard < self.cards.count-1 {
+                //If challenging card is greater than or less than compared card, then it moves up
+                comparedCard = pairingCard + 1
+                if self.cards[pairingCard].rank.rawValue > self.cards[comparedCard].rank.rawValue ||  self.cards[pairingCard].rank.rawValue < self.cards[comparedCard].rank.rawValue{
+                    print(pairingCard)
+                    print(comparedCard)
+                    print(self.cards[pairingCard].simpleDescription())
+                    print(self.cards[comparedCard].simpleDescription())
+                    let element = self.cards[pairingCard]
+                    self.cards.remove(at: pairingCard)
+                    self.cards.insert(element, at: comparedCard)
+                    pairingCard += 1
+                    
+                    //  If challenging card and compared card is the same, both get removed
+                } else {
+                    self.cards.remove(at: pairingCard)
+                    self.cards.remove(at: comparedCard)
+                    stillPairing = false
+                }
             }
+            numberOfCardsChecked += 1
+        }
     }
 }
 
@@ -60,7 +68,6 @@ class OldMaid {
         while deck.cards.count != 51 {
             if deck.cards[checkingCard].rank.rawValue == itemToRemove {
                 deck.cards.remove(at: itemToRemove)
-                print("The deck has \(deck.cards.count) cards")
             }
             checkingCard += 1
             print(checkingCard)
@@ -79,9 +86,12 @@ class OldMaid {
             self.computerHand.cards = newCards
             print("Computer hanve \(newCards.count) cards")
         }
+        
+        computerHand.removePairs()
+        
     }
     
-
+    
     
     
     
