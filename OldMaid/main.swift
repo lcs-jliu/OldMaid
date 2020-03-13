@@ -21,17 +21,17 @@ extension Hand {
             var stillPairing : Bool = true
             
             // compare
-            while stillPairing == true && comparedCard < self.cards.count-1 {
+            while stillPairing == true && comparedCard < self.cards.count - 1 {
                 //If challenging card is greater than or less than compared card, then it move up to compare to the next card
                 comparedCard = pairingCard + 1
                 if self.cards[pairingCard].rank.rawValue > self.cards[comparedCard].rank.rawValue ||  self.cards[pairingCard].rank.rawValue < self.cards[comparedCard].rank.rawValue{
                     //Simple description to show the status of cards
-                    print(pairingCard)
-                    print(comparedCard)
-                    print(self.cards[pairingCard].simpleDescription())
-                    print("VS.")
-                    print(self.cards[comparedCard].simpleDescription())
-                    print("--------------------------------------")
+//                    print(pairingCard)
+//                    print(comparedCard)
+//                    print(self.cards[pairingCard].simpleDescription())
+//                    print("VS.")
+//                    print(self.cards[comparedCard].simpleDescription())
+//                    print("--------------------------------------")
                     // move the comparing card up by one inorder to compare to the next card`
                     let element = self.cards[pairingCard]
                     self.cards.remove(at: pairingCard)
@@ -50,8 +50,9 @@ extension Hand {
                     print("\(cards[pairingCard].simpleDescription()) and \(cards[comparedCard].simpleDescription()) get removed")
                     print("--------------------------------------")
                     //remove card
-                    self.cards.remove(at: pairingCard)
                     self.cards.remove(at: comparedCard)
+                    self.cards.remove(at: pairingCard)
+                    
                     
                     stillPairing = false
                     
@@ -99,7 +100,7 @@ class OldMaid {
         //Player has 26
         if let newCards = self.deck.randomlyDealOut(thisManyCards: 26){
             self.playerHand.cards = newCards
-            print("Player have \(newCards.count) cards")
+            print("Player has \(newCards.count) cards")
         }
          //remove pairs from player's hand
         playerHand.removePairs()
@@ -107,7 +108,7 @@ class OldMaid {
         //Computer has 25
         if let newCards = self.deck.randomlyDealOut(thisManyCards: 25){
             self.computerHand.cards = newCards
-            print("Computer hanve \(newCards.count) cards")
+            print("Computer has \(newCards.count) cards")
         }
         //remove pairs frm computer's hand
         computerHand.removePairs()
