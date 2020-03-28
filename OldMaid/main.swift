@@ -43,12 +43,12 @@ extension Hand {
                     //  If challenging card and compared card is the same, both get removed
                 } else {
                     //simple description of card remove
-                    print(pairingCard)
-                    print(comparedCard)
-                    print(self.cards[pairingCard].simpleDescription())
-                    print(self.cards[comparedCard].simpleDescription())
-                    print("\(cards[pairingCard].simpleDescription()) and \(cards[comparedCard].simpleDescription()) get removed")
-                    print("--------------------------------------")
+//                    print(pairingCard)
+//                    print(comparedCard)
+//                    print(self.cards[pairingCard].simpleDescription())
+//                    print(self.cards[comparedCard].simpleDescription())
+//                    print("\(cards[pairingCard].simpleDescription()) and \(cards[comparedCard].simpleDescription()) get removed")
+//                    print("--------------------------------------")
                     //remove card
                     self.cards.remove(at: comparedCard)
                     self.cards.remove(at: pairingCard)
@@ -60,6 +60,14 @@ extension Hand {
             }
             numberOfCardsChecked += 1
         }
+    }
+    
+    func randomlyDealACard() -> Card {
+        let numberOfCards = self.cards.count - 1
+        let cardIndex = Int.random(in: 0...numberOfCards)
+        let cardDealt = self.cards[cardIndex]
+        self.cards.remove(at: cardIndex)
+        return cardDealt
     }
 }
 
@@ -73,6 +81,12 @@ class OldMaid {
     var playerHand : Hand
     var computerHand : Hand
     
+    // Status of the players
+    var paringSide : Hand
+    
+    // Statistics of the game
+    var gameIsOver = false
+    
     //Initialize all the variables
     init() {
         
@@ -82,6 +96,9 @@ class OldMaid {
         // Initialize players
         playerHand = Hand(description: "player")
         computerHand = Hand(description: "computer")
+        
+        //Set who is paring first
+        paringSide = playerHand
         
         //Remove a queen
         let itemToRemove = 12
@@ -93,8 +110,6 @@ class OldMaid {
             checkingCard += 1
             print(checkingCard)
         }
-        
-        
         
         //Deal out the card
         //Player has 26
@@ -110,9 +125,18 @@ class OldMaid {
             self.computerHand.cards = newCards
             print("Computer has \(newCards.count) cards")
         }
-        //remove pairs frm computer's hand
+        // Remove pairs frm computer's hand
         computerHand.removePairs()
         
+        // Start the game
+        play()
+    }
+    
+    func play() {
+        while gameIsOver != true && paringSide.cards.count > 0 {
+            let paringCard = paringSide.randomlyDealACard()
+            print(paringCard)
+        }
     }
     
     
