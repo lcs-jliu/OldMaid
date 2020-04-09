@@ -83,6 +83,7 @@ class OldMaid {
     
     // Status of the players
     var paringSide : Hand
+    var dealingSide : Hand
     
     // Statistics of the game
     var gameIsOver = false
@@ -99,6 +100,7 @@ class OldMaid {
         
         //Set who is paring first
         paringSide = playerHand
+        dealingSide = computerHand
         
         //Remove a queen
         let itemToRemove = 12
@@ -149,7 +151,7 @@ class OldMaid {
     
     func check(the: Card) -> Bool {
         var checkedCard = 0
-        while checkedCard < paringSide.cards.count {
+        while checkedCard < paringSide.cards.count - 1{
                 if paringSide.cards[0].rank.rawValue > paringSide.cards[checkedCard].rank.rawValue || paringSide.cards[0].rank.rawValue < paringSide.cards[checkedCard].rank.rawValue {
                     checkedCard += 1
                 } else {
