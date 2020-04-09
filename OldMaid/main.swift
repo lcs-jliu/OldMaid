@@ -108,7 +108,6 @@ class OldMaid {
                 deck.cards.remove(at: itemToRemove)
             }
             checkingCard += 1
-            print(checkingCard)
         }
         
         //Deal out the card
@@ -119,6 +118,7 @@ class OldMaid {
         }
          //remove pairs from player's hand
         playerHand.removePairs()
+        print("The player has \(playerHand.cards.count) cards left after pairing")
         
         //Computer has 25
         if let newCards = self.deck.randomlyDealOut(thisManyCards: 25){
@@ -127,6 +127,7 @@ class OldMaid {
         }
         // Remove pairs frm computer's hand
         computerHand.removePairs()
+        print("The computer has \(computerHand.cards.count) cards left after pairing")
         
         // Start the game
         play()
@@ -135,9 +136,39 @@ class OldMaid {
     func play() {
         while gameIsOver != true && paringSide.cards.count > 0 {
             let paringCard = paringSide.randomlyDealACard()
-            print(paringCard)
+            print("The \(paringSide.description) deals a \(paringCard.simpleDescription())")
+            if check(the: paringCard) == true {
+                print("The cards got cancelled")
+                print("The \(paringSide.description) has \(playerHand.cards.count) card(s) left in hand")
+            } else {
+                print("The \(paringCard.simpleDescription()) did not got cancelled")
+            }
+            siwtchWhoOnIsParing()
         }
     }
+    
+    func check(the: Card) -> Bool {
+        var checkedCard = 0
+        while checkedCard < paringSide.cards.count {
+                if paringSide.cards[0].rank.rawValue > paringSide.cards[checkedCard].rank.rawValue || paringSide.cards[0].rank.rawValue < paringSide.cards[checkedCard].rank.rawValue {
+                    checkedCard += 1
+                } else {
+                    paringSide.cards.remove(at: 0)
+                    paringSide.cards.remove(at: checkedCard)
+                    return true
+            }
+        }
+        return false
+    }
+    
+    func siwtchWhoOnIsParing() {
+        if paringSide === playerHand {
+            paringSide = computerHand
+        } else {
+            paringSide = playerHand
+        }
+    }
+}
     
     
     
@@ -359,8 +390,5 @@ class OldMaid {
     //}
     //
     //War(debugMode: false)
-    
-    
-}
 
 OldMaid()
