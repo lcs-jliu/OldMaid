@@ -87,6 +87,27 @@ class OldMaid {
     //Initialize all the variables
     init() {
         
+        // Description of the game
+        print("Welcome to the card game Old Maid")
+        print("=========================================")
+        print("This game requires two or more players and a standard 52-card deck with one of the queens removed")
+        print("51 cards remain are dealt out as evenly as possible")
+        print("-----------------------------------------")
+        print("OBJECTIVE")
+        print("The objective of the game is to aviod being the Old Maid, which is the last player holding the odd Queen")
+        print("-----------------------------------------")
+        print("RULES")
+        print("Players start to look at their cards and remove all the existing pairs")
+        print("The first player randomly draw a card from the player behind him/her to check, if the card drawn creates a pair the matching cards are removed, if not the cards stays in first player's hand")
+        print("The game continous like that...")
+        print("-----------------------------------------")
+        print("WINNER/LOSER")
+        print("Once a player has all his/her card paired up, then he/she is out of the game and safe from becoming the Old Maid")
+        print("The last player holding the odd Queen becomes the Old Maid and loses the game")
+        print("=========================================")
+        print("==========")
+        print("GAME START")
+        print("==========")
         //initialize the deck
         self.deck = Deck()
         
@@ -106,7 +127,6 @@ class OldMaid {
                 deck.cards.remove(at: itemToRemove)
             }
             checkingCard += 1
-            //print(checkingCard)
         }
         
         //Deal out the card
