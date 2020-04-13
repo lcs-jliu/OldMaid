@@ -140,8 +140,10 @@ class OldMaid {
             if check(the: pairingCard) == true {
                 print("The cards got cancelled")
                 print("The \(pairingSide.description) has \(pairingSide.cards.count) card(s) left in hand")
+                determineWhoWon()
             } else {
                 print("The \(pairingCard.simpleDescription()) did not got cancelled")
+                determineWhoWon()
             }
             siwtchWhoOnIsPairing()
         }
@@ -168,6 +170,20 @@ class OldMaid {
         } else {
             pairingSide = playerHand
             dealingSide = computerHand
+        }
+    }
+    
+    func determineWhoWon() {
+        if dealingSide.cards.count == 0 {
+            gameIsOver = true
+            print("The \(pairingSide.description) becomes the Old Maid (loser)")
+            print(pairingSide.cards)
+        } else if pairingSide.cards.count == 0 {
+            gameIsOver = true
+            print("The \(dealingSide.description) becomes the Old Maid (loser)")
+            print(pairingSide.cards)
+        } else {
+            return
         }
     }
 }
