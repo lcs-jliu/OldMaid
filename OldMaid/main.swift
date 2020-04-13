@@ -50,8 +50,6 @@ extension Hand {
                     //remove card
                     self.cards.remove(at: comparedCard)
                     self.cards.remove(at: pairingCard)
-                    
-                    
                     stillPairing = false
                     
                 }
@@ -80,7 +78,7 @@ class OldMaid {
     var computerHand : Hand
     
     // Status of the players
-    var paringSide : Hand
+    var pairingSide : Hand
     var dealingSide : Hand
     
     // Statistics of the game
@@ -96,8 +94,8 @@ class OldMaid {
         playerHand = Hand(description: "player")
         computerHand = Hand(description: "computer")
         
-        //Set who is paring first
-        paringSide = playerHand
+        //Set who is pairing first
+        pairingSide = playerHand
         dealingSide = computerHand
         
         //Remove a queen
@@ -135,38 +133,41 @@ class OldMaid {
     }
     
     func play() {
-        while gameIsOver != true && paringSide.cards.count > 0 {
-            let paringCard = paringSide.randomlyDealACard()
-            print("The \(paringSide.description) deals a \(paringCard.simpleDescription())")
-            if check(the: paringCard) == true {
+        while gameIsOver != true && dealingSide.cards.count > 0 {
+            let pairingCard = dealingSide.randomlyDealACard()
+            pairingSide.cards.append(pairingCard)
+            print("The \(pairingSide.description) deals a \(pairingCard.simpleDescription()) from \(dealingSide.description)")
+            if check(the: pairingCard) == true {
                 print("The cards got cancelled")
-                print("The \(paringSide.description) has \(playerHand.cards.count) card(s) left in hand")
+                print("The \(pairingSide.description) has \(pairingSide.cards.count) card(s) left in hand")
             } else {
-                print("The \(paringCard.simpleDescription()) did not got cancelled")
+                print("The \(pairingCard.simpleDescription()) did not got cancelled")
             }
-            siwtchWhoOnIsParing()
+            siwtchWhoOnIsPairing()
         }
     }
     
     func check(the: Card) -> Bool {
         var checkedCard = 0
-        while checkedCard < paringSide.cards.count - 1{
-                if paringSide.cards[0].rank.rawValue > paringSide.cards[checkedCard].rank.rawValue || paringSide.cards[0].rank.rawValue < paringSide.cards[checkedCard].rank.rawValue {
+        while checkedCard < pairingSide.cards.count - 1{
+                if pairingSide.cards[0].rank.rawValue > pairingSide.cards[checkedCard].rank.rawValue || pairingSide.cards[0].rank.rawValue < pairingSide.cards[checkedCard].rank.rawValue {
                     checkedCard += 1
                 } else {
-                    paringSide.cards.remove(at: 0)
-                    paringSide.cards.remove(at: checkedCard)
+                    pairingSide.cards.remove(at: 0)
+                    pairingSide.cards.remove(at: checkedCard)
                     return true
             }
         }
         return false
     }
     
-    func siwtchWhoOnIsParing() {
-        if paringSide === playerHand {
-            paringSide = computerHand
+    func siwtchWhoOnIsPairing() {
+        if pairingSide === playerHand {
+            pairingSide = computerHand
+            dealingSide = playerHand
         } else {
-            paringSide = playerHand
+            pairingSide = playerHand
+            dealingSide = computerHand
         }
     }
 }
