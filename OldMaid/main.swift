@@ -63,6 +63,7 @@ extension Hand {
         let cardIndex = Int.random(in: 0...numberOfCards)
         let cardDealt = self.cards[cardIndex]
         self.cards.remove(at: cardIndex)
+        print(cardDealt)
         return cardDealt
     }
 }
@@ -105,7 +106,7 @@ class OldMaid {
         var checkingCard = 0
         while deck.cards.count != 51 {
             if deck.cards[checkingCard].rank.rawValue == itemToRemove {
-                deck.cards.remove(at: itemToRemove)
+                deck.cards.remove(at: checkingCard)
             }
             checkingCard += 1
         }
@@ -119,6 +120,7 @@ class OldMaid {
          //remove pairs from player's hand
         playerHand.removePairs()
         print("The player has \(playerHand.cards.count) cards left after pairing")
+        //print(playerHand.cards)
         
         //Computer has 25
         if let newCards = self.deck.randomlyDealOut(thisManyCards: 25){
@@ -128,6 +130,7 @@ class OldMaid {
         // Remove pairs frm computer's hand
         computerHand.removePairs()
         print("The computer has \(computerHand.cards.count) cards left after pairing")
+        //print(computerHand.cards)
         
         // Start the game
         play()
@@ -174,16 +177,20 @@ class OldMaid {
     }
     
     func check(the: Card) -> Bool {
-        var checkedCard = 0
+        var checkedCard = 1
         while checkedCard < pairingSide.cards.count - 1{
-                if pairingSide.cards[0].rank.rawValue > pairingSide.cards[checkedCard].rank.rawValue || pairingSide.cards[0].rank.rawValue < pairingSide.cards[checkedCard].rank.rawValue {
+            if pairingSide.cards.last!.rank.rawValue > pairingSide.cards[checkedCard].rank.rawValue || pairingSide.cards.last!.rank.rawValue < pairingSide.cards[checkedCard].rank.rawValue {
+                    print(pairingSide.cards[checkedCard])
                     checkedCard += 1
                 } else {
-                    pairingSide.cards.remove(at: 0)
+                    print(pairingSide.cards[checkedCard])
+                    pairingSide.cards.removeLast()
                     pairingSide.cards.remove(at: checkedCard)
                     return true
             }
         }
+        print("----")
+        print(pairingSide.cards)
         return false
     }
     
