@@ -63,7 +63,7 @@ extension Hand {
         let cardIndex = Int.random(in: 0...numberOfCards)
         let cardDealt = self.cards[cardIndex]
         self.cards.remove(at: cardIndex)
-        //print(cardDealt)
+        print(cardDealt)
         return cardDealt
     }
 }
@@ -121,7 +121,7 @@ class OldMaid {
         playerHand.removePairs()
         print("The player has \(playerHand.cards.count) cards left after remove all existing pairs")
         print("--------------------------")
-        //print(playerHand.cards)
+        print(playerHand.cards)
         
         //Computer has 25
         if let newCards = self.deck.randomlyDealOut(thisManyCards: 25){
@@ -132,7 +132,7 @@ class OldMaid {
         computerHand.removePairs()
         print("The computer has \(computerHand.cards.count) cards left remove all existing pairs")
         print("--------------------------")
-        //print(computerHand.cards)
+        print(computerHand.cards)
         
         // Start the game
         play()
@@ -184,10 +184,10 @@ class OldMaid {
         var checkedCard = 1
         while checkedCard < pairingSide.cards.count - 1{
             if pairingSide.cards.last!.rank.rawValue > pairingSide.cards[checkedCard].rank.rawValue || pairingSide.cards.last!.rank.rawValue < pairingSide.cards[checkedCard].rank.rawValue {
-                    //print(pairingSide.cards[checkedCard])
+                    print(pairingSide.cards[checkedCard])
                     checkedCard += 1
                 } else {
-                    //print(pairingSide.cards[checkedCard])
+                    print(pairingSide.cards[checkedCard])
                     pairingSide.cards.removeLast()
                     pairingSide.cards.remove(at: checkedCard)
                     return true
