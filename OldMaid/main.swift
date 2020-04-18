@@ -63,7 +63,6 @@ extension Hand {
         let cardIndex = Int.random(in: 0...numberOfCards)
         let cardDealt = self.cards[cardIndex]
         self.cards.remove(at: cardIndex)
-        print(cardDealt)
         return cardDealt
     }
 }
@@ -121,18 +120,16 @@ class OldMaid {
         playerHand.removePairs()
         print("The player has \(playerHand.cards.count) cards left after remove all existing pairs")
         print("--------------------------")
-        print(playerHand.cards)
         
         //Computer has 25
         if let newCards = self.deck.randomlyDealOut(thisManyCards: 25){
             self.computerHand.cards = newCards
-            print("Computer has \(newCards.count) cards")
+            print("Computer has \(newCards.count) cards to start")
         }
         // Remove pairs frm computer's hand
         computerHand.removePairs()
-        print("The computer has \(computerHand.cards.count) cards left remove all existing pairs")
+        print("The computer has \(computerHand.cards.count) cards left after remove all existing pairs")
         print("--------------------------")
-        print(computerHand.cards)
         
         // Start the game
         play()
@@ -166,6 +163,7 @@ class OldMaid {
             let pairingCard = dealingSide.randomlyDealACard()
             pairingSide.cards.append(pairingCard)
             print("The \(pairingSide.description) deals a \(pairingCard.simpleDescription()) from \(dealingSide.description)")
+            waitForUserInput()
             if check(the: pairingCard) == true {
                 print("The cards got cancelled")
                 print("The \(pairingSide.description) has \(pairingSide.cards.count) card(s) left in hand after pairing")
@@ -181,13 +179,11 @@ class OldMaid {
     }
     
     func check(the: Card) -> Bool {
-        var checkedCard = 0
+    var checkedCard = 0
         while checkedCard < pairingSide.cards.count - 1{
             if pairingSide.cards.last!.rank.rawValue > pairingSide.cards[checkedCard].rank.rawValue || pairingSide.cards.last!.rank.rawValue < pairingSide.cards[checkedCard].rank.rawValue {
-                    print(pairingSide.cards[checkedCard])
                     checkedCard += 1
                 } else {
-                    print(pairingSide.cards[checkedCard])
                     pairingSide.cards.removeLast()
                     pairingSide.cards.remove(at: checkedCard)
                     return true
@@ -210,15 +206,18 @@ class OldMaid {
         if dealingSide.cards.count == 0 {
             gameIsOver = true
             print("The \(pairingSide.description) becomes the Old Maid (loser)")
-            print(pairingSide.cards)
         } else if pairingSide.cards.count == 0 {
             gameIsOver = true
             print("The \(dealingSide.description) becomes the Old Maid (loser)")
-            print(pairingSide.cards)
         } else {
             return
         }
     }
 }
+
+    func waitForUserInput() {
+        print("Press ENTER to continue...", terminator: "")
+        readLine()
+    }
 
 OldMaid()
