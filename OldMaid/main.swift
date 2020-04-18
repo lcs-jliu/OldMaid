@@ -13,7 +13,7 @@ extension Hand {
     func removePairs() {
         var numberOfCardsChecked = 0
         // check every card in the deck to see if pair exist
-        while numberOfCardsChecked < self.cards.count {
+        while numberOfCardsChecked < 26 {
             // The card selected to compare to the whole deck
             var pairingCard = 0
             // The card that is comparing to the selected card
@@ -181,7 +181,7 @@ class OldMaid {
     }
     
     func check(the: Card) -> Bool {
-        var checkedCard = 1
+        var checkedCard = 0
         while checkedCard < pairingSide.cards.count - 1{
             if pairingSide.cards.last!.rank.rawValue > pairingSide.cards[checkedCard].rank.rawValue || pairingSide.cards.last!.rank.rawValue < pairingSide.cards[checkedCard].rank.rawValue {
                     print(pairingSide.cards[checkedCard])
