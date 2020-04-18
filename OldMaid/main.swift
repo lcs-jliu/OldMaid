@@ -164,7 +164,7 @@ class OldMaid {
             pairingSide.cards.append(pairingCard)
             print("The \(pairingSide.description) deals a \(pairingCard.simpleDescription()) from \(dealingSide.description)")
             waitForUserInput()
-            if check(the: pairingCard) == true {
+            if pairUp(the: pairingCard) == true {
                 print("The cards got cancelled")
                 print("The \(pairingSide.description) has \(pairingSide.cards.count) card(s) left in hand after pairing")
                 print("=========================================")
@@ -178,7 +178,7 @@ class OldMaid {
         }
     }
     
-    func check(the: Card) -> Bool {
+    func pairUp(the: Card) -> Bool {
     var checkedCard = 0
         while checkedCard < pairingSide.cards.count - 1{
             if pairingSide.cards.last!.rank.rawValue > pairingSide.cards[checkedCard].rank.rawValue || pairingSide.cards.last!.rank.rawValue < pairingSide.cards[checkedCard].rank.rawValue {
