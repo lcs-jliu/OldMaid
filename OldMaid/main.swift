@@ -63,7 +63,7 @@ extension Hand {
         let cardIndex = Int.random(in: 0...numberOfCards)
         let cardDealt = self.cards[cardIndex]
         self.cards.remove(at: cardIndex)
-        print(cardDealt)
+        //print(cardDealt)
         return cardDealt
     }
 }
@@ -115,11 +115,12 @@ class OldMaid {
         //Player has 26
         if let newCards = self.deck.randomlyDealOut(thisManyCards: 26){
             self.playerHand.cards = newCards
-            print("Player has \(newCards.count) cards")
+            print("Player has \(newCards.count) cards to start")
         }
          //remove pairs from player's hand
         playerHand.removePairs()
-        print("The player has \(playerHand.cards.count) cards left after pairing")
+        print("The player has \(playerHand.cards.count) cards left after remove all existing pairs")
+        print("--------------------------")
         //print(playerHand.cards)
         
         //Computer has 25
@@ -129,7 +130,8 @@ class OldMaid {
         }
         // Remove pairs frm computer's hand
         computerHand.removePairs()
-        print("The computer has \(computerHand.cards.count) cards left after pairing")
+        print("The computer has \(computerHand.cards.count) cards left remove all existing pairs")
+        print("--------------------------")
         //print(computerHand.cards)
         
         // Start the game
@@ -166,10 +168,12 @@ class OldMaid {
             print("The \(pairingSide.description) deals a \(pairingCard.simpleDescription()) from \(dealingSide.description)")
             if check(the: pairingCard) == true {
                 print("The cards got cancelled")
-                print("The \(pairingSide.description) has \(pairingSide.cards.count) card(s) left in hand")
+                print("The \(pairingSide.description) has \(pairingSide.cards.count) card(s) left in hand after pairing")
+                print("=========================================")
                 determineWhoWon()
             } else {
                 print("The \(pairingCard.simpleDescription()) did not got cancelled")
+                print("=========================================")
                 determineWhoWon()
             }
             siwtchWhoOnIsPairing()
@@ -180,17 +184,15 @@ class OldMaid {
         var checkedCard = 1
         while checkedCard < pairingSide.cards.count - 1{
             if pairingSide.cards.last!.rank.rawValue > pairingSide.cards[checkedCard].rank.rawValue || pairingSide.cards.last!.rank.rawValue < pairingSide.cards[checkedCard].rank.rawValue {
-                    print(pairingSide.cards[checkedCard])
+                    //print(pairingSide.cards[checkedCard])
                     checkedCard += 1
                 } else {
-                    print(pairingSide.cards[checkedCard])
+                    //print(pairingSide.cards[checkedCard])
                     pairingSide.cards.removeLast()
                     pairingSide.cards.remove(at: checkedCard)
                     return true
             }
         }
-        print("----")
-        print(pairingSide.cards)
         return false
     }
     
